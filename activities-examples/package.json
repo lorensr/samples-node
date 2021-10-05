@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "axios": "0.21.1",
-    "node-fetch": "2.x",
+    "node-fetch": "^3.0.0",
     "temporalio": "0.4.2"
   },
   "devDependencies": {
