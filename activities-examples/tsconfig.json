@@ -3,6 +3,7 @@
   "version": "4.2.2",
   "compilerOptions": {
     "module": "ES2020",
+    "moduleResolution": "node",
     "sourceMap": true,
     "rootDir": "./src",
     "outDir": "./lib"
