@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node16/tsconfig.json",
   "version": "4.2.2",
   "compilerOptions": {
+    "module": "ES2020",
     "sourceMap": true,
     "rootDir": "./src",
     "outDir": "./lib"
