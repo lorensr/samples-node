@@ -12,11 +12,27 @@ async function run() {
     workflowDefaults: { taskQueue: 'tutorial' },
   });
 
+  const ALREADY_EXISTS = 6;
+
   // Invoke the `example` Workflow, only resolved when the workflow completes
-  const result = await client.execute(example, {
+  const handle = await client.start(example, {
     args: ['Temporal'], // type inference works! args: [name: string]
+    workflowId: '123',
   });
-  console.log(result); // Hello, Temporal!
+  try {
+    await client.start(example, {
+      args: ['Temporal'], // type inference works! args: [name: string]
+      workflowId: '123',
+    });
+  } catch (e: any) {
+    if (e.code === ALREADY_EXISTS) {
+      console.log('Already started workflow 123');
+    } else {
+      // unexpected error
+      throw e;
+    }
+  }
+  console.log(await handle.result()); // Hello, Temporal!
 }
 
 run().catch((err) => {
