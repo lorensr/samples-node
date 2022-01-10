@@ -14,5 +14,6 @@ const {
 
 export async function httpWorkflow(): Promise<string> {
   const answer = await makeHTTPRequest();
+  console.log('Date? ', typeof answer, answer);
   return `The answer is ${answer}`;
 }
